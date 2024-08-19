@@ -70,23 +70,32 @@ Data is sourced from the [EM-DAT: The International Disaster Database](https://p
 ### Yearly Total Economic Damage
 ![Yearly Total Economic Damage](Images/Yearly_Total_Economic_Damage.png)
 
+### Yearly Total Insured Damage
+![Yearly Total Insured Damage](Images/Yearly_Total_Insured_Damage.png)
+
+### Magnitude Across Years
+![Magnitude Across Years](Images/Magnitude_Across_Years.png)
+
+### Magnitude vs Total Deaths
+![Magnitude vs Total Deaths](Images/Max_Magnitude_Total_Deaths.png)
+
+### Total Damage vs Total Deaths
+![Total Damage vs Total Deaths](Images/Total_Damage_va_Total_Deaths.png)
+
+### Top 5 States by Total Damage
+![Top 5 States by Total Damage](Images/Top_5_States_by_Total_Damage.png)
+
+### Top 5 States by Total Affected Persons
+![Top 5 States by Total Affected Persons](Images/Top_5_States_by_Total_Affected_Persons.png)
+
 ### Total Deaths by Year
 ![Total Deaths by Year](Images/Total_Deaths_by_Year.png)
 
 ### Total Deaths Across Years: Top 5 States
 ![Total Deaths Across Years: Top 5 States](Images/Total_Deaths_Across_Years_Top_5_States.png)
 
-### Magnitude Across Years
-![Magnitude Across Years](Images/Magnitude_Across_Years.png)
-
-### Magnitude vs Total Deaths
-![Magnitude vs Total Deaths](Images/Total_Deaths.png)
-
-### Yearly Total Insured Damage
-![Yearly Total Insured Damage](Images/Yearly_Total_Insured_Damage.png)
-
-### Top 5 States by Total Damage
-![Top 5 States by Total Damage](Images/Top_5_States_by_Total_Damage.png)
+### Correlation Matrix
+![Correlation Matrix](Images/Correlation_Matrix.png)
 
 ### Top 5 States by Total Deaths
 ![Top 5 States by Total Deaths](Images/Top_5_States_by_Total_Deaths.png)
