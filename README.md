@@ -66,29 +66,30 @@ Data is sourced from the [EM-DAT: The International Disaster Database](https://p
 
 ## Visualizations:
 
-### Correlation Matrix
-![Correlation Matrix](Images/Correlation_Matrix.png)
+
+### Yearly Total Economic Damage
+![Yearly Total Economic Damage](Images/Yearly_Total_Economic_Damage.png)
+
+### Total Deaths by Year
+![Total Deaths by Year](Images/Total_Deaths_by_Year.png)
+
+### Total Deaths Across Years: Top 5 States
+![Total Deaths Across Years: Top 5 States](Images/Total_Deaths_Across_Years_Top_5_States.png)
 
 ### Magnitude Across Years
 ![Magnitude Across Years](Images/Magnitude_Across_Years.png)
+
+### Magnitude vs Total Deaths
+![Magnitude vs Total Deaths](Images/Total_Deaths.png)
+
+### Yearly Total Insured Damage
+![Yearly Total Insured Damage](Images/Yearly_Total_Insured_Damage.png)
 
 ### Top 5 States by Total Damage
 ![Top 5 States by Total Damage](Images/Top_5_States_by_Total_Damage.png)
 
 ### Top 5 States by Total Deaths
 ![Top 5 States by Total Deaths](Images/Top_5_States_by_Total_Deaths.png)
-
-### Total Deaths by Year
-![Total Deaths by Year](Images/Total_Deaths_by_Year.png)
-
-### Magnitude vs Total Deaths
-![Magnitude vs Total Deaths](Images/Total_Deaths.png)
-
-### Yearly Total Economic Damage
-![Yearly Total Economic Damage](Images/Yearly_Total_Economic_Damage.png)
-
-### Yearly Total Insured Damage
-![Yearly Total Insured Damage](Images/Yearly_Total_Insured_Damage.png)
 
 ## Conclusion:
 This project provides a detailed examination of the economic and social impacts of hurricanes over the last two decades. By analyzing data on damage, deaths, and displacement, the project offers insights into the effects of hurricanes and suggests areas for future research and policy focus.
