@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Leaflet Marker Map with Year Selection</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 80vh;
+            width: 100%;
+        }
+
+        #controls {
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            margin: 10px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="controls">
+        <label for="year-select">Select Year:</label>
+        <select id="year-select">
+        </select>
+    </div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize map and set view
+var map = L.map('map').setView([37.8, -96], 4); // Center the map on the US
+
+// Add tile layer to the map
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+}).addTo(map);
+
+var geojsonLayer;
+
+// Function to load and filter GeoJSON data
+function loadGeoJSON(year) {
+    fetch('hurricane_data.geojson')
+        .then(response => response.json())
+        .then(data => {
+            if (geojsonLayer) {
+                geojsonLayer.clearLayers();
+            }
+
+            // Filter features by year or all years 
+            var filteredData = {
+                "type": "FeatureCollection",
+                "features": year === 'All' ? data.features : data.features.filter(feature => feature.properties['Start Year'] == year)
+            };
+
+            geojsonLayer = L.geoJson(filteredData, {
+                onEachFeature: function (feature, layer) {
+                    if (feature.properties) {
+                        var popupContent = '<h3>' + feature.properties['Location'] + '</h3>' +
+                            '<p>Total Deaths: ' + feature.properties['Total Deaths'] + '</p>' +
+                            '<p>Total Affected: ' + feature.properties['Total Affected'] + '</p>' +
+                            '<p>Start Date: ' + feature.properties['Start Year'] + '-' +
+                            ('0' + feature.properties['Start Month']).slice(-2) + '-' +
+                            ('0' + feature.properties['Start Day']).slice(-2) + '</p>' +
+                            '<p>End Date: ' + feature.properties['End Year'] + '-' +
+                            ('0' + feature.properties['End Month']).slice(-2) + '-' +
+                            ('0' + feature.properties['End Day']).slice(-2) + '</p>';
+
+                        layer.bindPopup(popupContent);
+                    }
+                },
+                pointToLayer: function (feature, latlng) {
+                    return L.marker(latlng, {
+                        icon: L.icon({
+                            iconUrl: 'https://unpkg.com/leaflet/dist/images/marker-icon.png',
+                            iconSize: [25, 41],
+                            iconAnchor: [12, 41],
+                            popupAnchor: [1, -34],
+                            shadowSize: [41, 41]
+                        })
+                    });
+                }
+            }).addTo(map);
+        });
+}
+
+// Fill drop down with years from the geojson file
+function populateYearSelect() {
+    fetch('hurricane_data.geojson')
+        .then(response => response.json())
+        .then(data => {
+            var years = [...new Set(data.features.map(feature => feature.properties['Start Year']))].sort();
+            var select = document.getElementById('year-select');
+
+            // Add option for all years to show also
+            var allYearsOption = document.createElement('option');
+            allYearsOption.value = 'All';
+            allYearsOption.textContent = 'All Years';
+            select.appendChild(allYearsOption);
+
+            years.forEach(year => {
+                var option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                select.appendChild(option);
+            });
+
+            // Load initial data
+            loadGeoJSON('All');
+        });
+}
+
+// Initialize drop down menu
+populateYearSelect();
+document.getElementById('year-select').addEventListener('change', function () {
+    var selectedYear = this.value;
+    loadGeoJSON(selectedYear);
+});
+    </script>
+</body>
+
+</html>
