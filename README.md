@@ -9,9 +9,6 @@
 ## Class:
 Northwestern Data Bootcamp
 
-## Date:
-8/18/2024
-
 ## Project Overview:
 This project is a comprehensive analysis of the economic and social impacts of hurricanes in the United States, Canada, Mexico, and the U.S. Virgin Islands from 2000 to 2024. The analysis aims to identify patterns and correlations that can inform future hurricane preparedness and response efforts.
 
